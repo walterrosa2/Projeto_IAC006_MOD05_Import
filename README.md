@@ -10,19 +10,6 @@ padronizada, extrai os dados, sugere lançamentos contábeis com IA, submete tud
 
 ---
 
-## Para alunos (sem programação)
-
-1. Instale o **Python 3.13** (marque *Add python.exe to PATH*) — veja o topo do `requirements.txt`.
-2. Baixe o projeto (**Code → Download ZIP**) ou clone com `git clone`.
-3. Abra a pasta no **Antigravity** e peça ao agente para preparar e iniciar a aplicação
-   (o roteiro que ele segue está em `AGENTS.md`, seção *Preparação do Ambiente*).
-4. Crie sua chave no **Google AI Studio** e cole no arquivo `.env`, em `GEMINI_API_KEY=`.
-5. Acesse <http://127.0.0.1:8501>.
-
-Siga o **Manual do Aluno** distribuído pelo professor para o passo a passo com telas.
-
----
-
 ## Início rápido
 
 ```powershell
@@ -38,9 +25,8 @@ _start.bat
 A aplicação abre em <http://127.0.0.1:8501>.
 
 Na primeira execução o script copia `.env.example` para `.env`. O padrão é
-`AI_PROVIDER=gemini`: basta colar a chave do Google AI Studio em `GEMINI_API_KEY=`.
-Para navegar pela esteira **sem chave de API**, use `AI_PROVIDER=mock` — as
-sugestões são simuladas e sinalizadas como tal na interface.
+`AI_PROVIDER=mock`, que permite navegar por toda a esteira **sem chave de API** —
+as sugestões são simuladas e sinalizadas como tal na interface.
 
 ### Configurar IA real
 

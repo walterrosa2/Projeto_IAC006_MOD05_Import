@@ -14,44 +14,13 @@ if str(PROJECT_ROOT) not in sys.path:
 
 import streamlit as st  # noqa: E402
 
-from app.ui import APP_ICON, APP_TITLE, setup_page, user_input_sidebar  # noqa: E402
+from app.ui import APP_ICON, APP_TITLE, setup_page  # noqa: E402
 from core.accounting.ai_accounting_classifier import check_provider_health  # noqa: E402
 from core.config import get_settings  # noqa: E402
 from core.logging_config import setup_logging  # noqa: E402
 
 setup_page("Início")
 setup_logging()
-
-PAGES_DIR = Path(__file__).parent / "pages"
-
-#: (arquivo, rótulo, ícone) — a ordem define o menu lateral.
-NAVIGATION: tuple[tuple[str, str, str], ...] = (
-    ("01_dashboard.py", "Dashboard", "📊"),
-    ("02_empresas.py", "Empresas", "🏢"),
-    ("03_plano_contas.py", "Plano de Contas", "📋"),
-    ("04_historicos.py", "Históricos", "🗒️"),
-    ("05_centros_custo.py", "Centros de Custo", "🏷️"),
-    ("06_orientacoes.py", "Orientações", "📌"),
-    ("07_exemplos_lancamentos.py", "Exemplos de Lançamentos", "💡"),
-    ("08_processar_pasta.py", "Processar Pasta", "⚙️"),
-    ("09_documentos.py", "Documentos Processados", "🗂️"),
-    ("10_validacao_lancamentos.py", "Validação de Lançamentos", "✅"),
-    ("11_exportacao_dominio.py", "Exportação Domínio", "📤"),
-    ("12_historico_exportacoes.py", "Histórico de Exportações", "📚"),
-    ("13_correcoes.py", "Correções e Aprendizado", "🧠"),
-    ("14_configuracao.py", "Configuração", "🔧"),
-)
-
-
-def render_sidebar() -> None:
-    with st.sidebar:
-        st.markdown(f"### {APP_ICON} {APP_TITLE}")
-        st.caption("A IA sugere. O contador aprova.")
-        st.divider()
-        for file_name, label, icon in NAVIGATION:
-            st.page_link(f"pages/{file_name}", label=label, icon=icon)
-    user_input_sidebar()
-
 
 def render_home() -> None:
     settings = get_settings()
@@ -114,5 +83,4 @@ def render_home() -> None:
             st.page_link(target, label=label, icon=icon)
 
 
-render_sidebar()
 render_home()

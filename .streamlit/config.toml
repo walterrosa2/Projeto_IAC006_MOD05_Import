@@ -14,3 +14,9 @@ maxUploadSize = 50
 
 [browser]
 gatherUsageStats = false
+
+[client]
+# Menu unico: a navegacao vem da propria app (app/ui.py), nao do menu automatico.
+showSidebarNavigation = false
+# Esconde o botao "Deploy" (a app e local).
+toolbarMode = "minimal"

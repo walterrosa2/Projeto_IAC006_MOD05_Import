@@ -26,6 +26,27 @@ from db.repositories import company_repository  # noqa: E402
 APP_TITLE = "Classificador Contábil"
 APP_ICON = "📒"
 
+#: (arquivo relativo a app/main.py, rótulo, ícone) — a ordem define o menu lateral.
+#: É o único menu da app: o menu automático do Streamlit fica oculto
+#: (showSidebarNavigation = false em .streamlit/config.toml).
+NAVIGATION: tuple[tuple[str, str, str], ...] = (
+    ("main.py", "Início", "🏠"),
+    ("pages/01_dashboard.py", "Dashboard", "📊"),
+    ("pages/02_empresas.py", "Empresas", "🏢"),
+    ("pages/03_plano_contas.py", "Plano de Contas", "📋"),
+    ("pages/04_historicos.py", "Históricos", "🗒️"),
+    ("pages/05_centros_custo.py", "Centros de Custo", "🏷️"),
+    ("pages/06_orientacoes.py", "Orientações", "📌"),
+    ("pages/07_exemplos_lancamentos.py", "Exemplos de Lançamentos", "💡"),
+    ("pages/08_processar_pasta.py", "Processar Pasta", "⚙️"),
+    ("pages/09_documentos.py", "Documentos Processados", "🗂️"),
+    ("pages/10_validacao_lancamentos.py", "Validação de Lançamentos", "✅"),
+    ("pages/11_exportacao_dominio.py", "Exportação Domínio", "📤"),
+    ("pages/12_historico_exportacoes.py", "Histórico de Exportações", "📚"),
+    ("pages/13_correcoes.py", "Correções e Aprendizado", "🧠"),
+    ("pages/14_configuracao.py", "Configuração", "🔧"),
+)
+
 #: Cores por status, usadas nos badges das tabelas e cabeçalhos.
 _STATUS_COLORS: dict[str, str] = {
     DocumentStatus.EXTRACTED: "#00D1FF",
@@ -79,6 +100,7 @@ def setup_page(title: str, *, icon: str = APP_ICON, wide: bool = True) -> None:
     )
     st.markdown(_CSS, unsafe_allow_html=True)
     init_db()
+    render_sidebar()
 
 
 def page_header(title: str, subtitle: str = "") -> None:
@@ -244,3 +266,14 @@ def user_input_sidebar() -> str:
         )
         st.session_state["current_user"] = name.strip() or "contador"
     return st.session_state["current_user"]
+
+
+def render_sidebar() -> None:
+    """Menu lateral único, exibido em todas as telas."""
+    with st.sidebar:
+        st.markdown(f"### {APP_ICON} {APP_TITLE}")
+        st.caption("A IA sugere. O contador aprova.")
+        st.divider()
+        for target, label, icon in NAVIGATION:
+            st.page_link(target, label=label, icon=icon)
+    user_input_sidebar()
