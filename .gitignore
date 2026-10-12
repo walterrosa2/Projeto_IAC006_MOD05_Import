@@ -1,0 +1,44 @@
+# Segredos
+.env
+*.key
+*.pem
+
+# Ambiente
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Dados locais e sensiveis (documentos de clientes)
+data/app.db
+data/app.db-journal
+data/exports/
+data/clientes/
+CLIENTES/
+logs/
+_trash/
+
+# Evidencias geradas
+artifacts/*.png
+artifacts/*.html
+
+# SO / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Material de apoio compactado (o conteudo ja esta em PRD/sdd_classificador_contabil)
+PRD/*.zip
+
+# Indice local de sessoes de agentes (gerado por maquina)
+knowledge/sessions.md
+knowledge/sessions.jsonl
+
+# Manual do aluno (distribuido a parte)
+docs/manual/
