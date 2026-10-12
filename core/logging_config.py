@@ -22,6 +22,8 @@ _SECRET_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
     (re.compile(r"sk-ant-[A-Za-z0-9\-_]{10,}"), "sk-ant-***REDACTED***"),
     (re.compile(r"sk-[A-Za-z0-9]{20,}"), "sk-***REDACTED***"),
     (re.compile(r"AIza[A-Za-z0-9\-_]{20,}"), "AIza***REDACTED***"),
+    # Formato novo das chaves do Google AI Studio (a partir de 2026): "AQ." + token.
+    (re.compile(r"\bAQ\.[A-Za-z0-9\-_]{20,}"), "AQ.***REDACTED***"),
     (
         re.compile(r"(?i)\b(api[_-]?key|token|password|senha|secret|authorization)\b\s*[:=]\s*\S+"),
         r"\1=***REDACTED***",
