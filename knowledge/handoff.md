@@ -4,6 +4,32 @@ Histórico de sessões entre agentes. Entradas mais recentes no topo.
 
 ---
 
+## 2026-10-12 12:50 - Claude Code (Opus 5.5) - Distribuição aos alunos + manual
+
+- **Feito:**
+  - Repositório publicado em https://github.com/walterrosa2/Projeto_IAC006_MOD05_Import
+    (sem `.env`, banco, exportações ou documentos de cliente).
+  - Dados com aparência real anonimizados nos testes e docs (nomes, CNPJs, contas,
+    código de barras, chave PIX).
+  - `_start.bat`/`_start.ps1`: detectam `py`/`python`, exigem 3.11+, modo `setup`;
+    `.gitattributes` força CRLF em `.bat`.
+  - `.env.example` já vem com `gemini` / `gemini-3.6-flash`; aluno só cola a chave.
+  - `AGENTS.md` ganhou a seção "Preparação do Ambiente (alunos — Windows)".
+  - Menu lateral único em todas as telas (antes havia dois menus na inicial e as
+    demais dependiam do menu automático do Streamlit).
+  - Manual do aluno (Word, 20 p.) em `docs/manual/Manual_Aluno_Antigravity.docx`
+    (fora do git), com capturas reais de GitHub, python.org, git-scm e da app.
+- **Não feito:** prints do Antigravity, dos instaladores (Python/Git), da extração do
+  ZIP e do Google AI Studio — computer use não estava disponível na sessão (extensão
+  VS Code). Ficaram 15 marcadores amarelos "[INSERIR PRINT]" no manual. Os nomes de
+  botões do Antigravity e do AI Studio no manual precisam ser conferidos contra a tela.
+- **Próximo passo:** percorrer o manual numa máquina limpa, capturar os prints
+  marcados e ajustar rótulos que divergirem.
+- **Como validar:** baixar o ZIP do GitHub em `C:\Projetos`, `cmd /c .\_start.bat setup`,
+  `cmd /c .\_start.bat` e abrir http://127.0.0.1:8501 (validado nesta sessão, 231 testes ok).
+
+---
+
 ## 2026-09-20 11:50 - Claude Code (Opus 5) - OCR e correção dos extratores
 
 - **Feito:**
